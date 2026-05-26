@@ -1,9 +1,5 @@
 package money
 
-import (
-	"strings"
-)
-
 // Currency represents money currency information required for formatting.
 type Currency struct {
 	Code        string
@@ -19,29 +15,17 @@ type Currencies map[string]*Currency
 
 // CurrencyByNumericCode returns the currency given the numeric code defined in ISO-4271.
 func (c Currencies) CurrencyByNumericCode(code string) *Currency {
-	for _, sc := range c {
-		if sc.NumericCode == code {
-			return sc
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // CurrencyByCode returns the currency given the currency code defined as a constant.
-func (c Currencies) CurrencyByCode(code string) *Currency {
-	sc, ok := c[code]
-	if !ok {
-		return nil
-	}
-
-	return sc
-}
+func (c Currencies) CurrencyByCode(code string) *Currency { _ = "STUB: not implemented"; return nil }
 
 // Add updates currencies list by adding a given Currency to it.
 func (c Currencies) Add(currency *Currency) Currencies {
-	c[currency.Code] = currency
-	return c
+	_ = "STUB: not implemented"
+	return *new(Currencies)
 }
 
 // currencies represents a collection of currency.
@@ -227,61 +211,29 @@ var currencies = Currencies{
 
 // AddCurrency lets you insert or update currency in currencies list.
 func AddCurrency(code, Grapheme, Template, Decimal, Thousand string, Fraction int) *Currency {
-	c := Currency{
-		Code:     code,
-		Grapheme: Grapheme,
-		Template: Template,
-		Decimal:  Decimal,
-		Thousand: Thousand,
-		Fraction: Fraction,
-	}
-	currencies.Add(&c)
-	return &c
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func newCurrency(code string) *Currency {
-	return &Currency{Code: strings.ToUpper(code)}
-}
+func newCurrency(code string) *Currency { _ = "STUB: not implemented"; return nil }
 
 // GetCurrency returns the currency given the code.
-func GetCurrency(code string) *Currency {
-	return currencies.CurrencyByCode(strings.ToUpper(code))
-}
+func GetCurrency(code string) *Currency { _ = "STUB: not implemented"; return nil }
 
 // GetCurrencyByNumericCode returns the currency given the numeric code.
 // The code parameter should be a string representing a 3-digit numeric code
 // as defined in the ISO-4217 standard. For example, "840" for USD or "978" for EUR.
-func GetCurrencyByNumericCode(code string) *Currency {
-	return currencies.CurrencyByNumericCode(code)
-}
+func GetCurrencyByNumericCode(code string) *Currency { _ = "STUB: not implemented"; return nil }
 
 // Formatter returns currency formatter representing
 // used currency structure.
-func (c *Currency) Formatter() *Formatter {
-	return &Formatter{
-		Fraction: c.Fraction,
-		Decimal:  c.Decimal,
-		Thousand: c.Thousand,
-		Grapheme: c.Grapheme,
-		Template: c.Template,
-	}
-}
+func (c *Currency) Formatter() *Formatter { _ = "STUB: not implemented"; return nil }
 
 // getDefault represent default currency if currency is not found in currencies list.
 // Grapheme and Code fields will be changed by currency code.
-func (c *Currency) getDefault() *Currency {
-	return &Currency{Decimal: ".", Thousand: ",", Code: c.Code, Fraction: 2, Grapheme: c.Code, Template: "1$"}
-}
+func (c *Currency) getDefault() *Currency { _ = "STUB: not implemented"; return nil }
 
 // get extended currency using currencies list.
-func (c *Currency) get() *Currency {
-	if curr, ok := currencies[c.Code]; ok {
-		return curr
-	}
+func (c *Currency) get() *Currency { _ = "STUB: not implemented"; return nil }
 
-	return c.getDefault()
-}
-
-func (c *Currency) equals(oc *Currency) bool {
-	return c.Code == oc.Code
-}
+func (c *Currency) equals(oc *Currency) bool { _ = "STUB: not implemented"; return false }
